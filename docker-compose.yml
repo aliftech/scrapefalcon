@@ -1,0 +1,15 @@
+version: '0.1.0'
+services:
+  db:
+    image: postgres:13.3-alpine
+    volumes:
+      - ./db_falcon:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: falcon
+      POSTGRES_PASSWORD: falconpass
+      POSTGRES_DB: scrapefalcon
+    ports:
+      - "5433:5432"
+
+volumes:
+  db_falcon:
