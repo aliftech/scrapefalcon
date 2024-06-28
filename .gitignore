@@ -1,5 +1,6 @@
-env
+# Backend Service
+backend/env
 db_falcon
-alembic
-alembic.ini
-.cz.toml
+backend/alembic
+backend/alembic.ini
+backend/.cz.toml
