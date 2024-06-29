@@ -1,3 +1,9 @@
+## 0.3.0 (2024-06-29)
+
+### Feat
+
+- add client service
+
 ## 0.2.0 (2024-06-29)
 
 ### Refactor
