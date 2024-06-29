@@ -1,7 +1,8 @@
 import click
 import json
 import requests
-from rich import print as rprint  # Ensure 'rich' is installed
+from rich import print as rprint
+from decouple import config
 
 
 @click.command()
@@ -52,10 +53,10 @@ def scrape(auth, username, password, email):
 
             # Assuming 'register' is a function that sends a POST request
             response = requests.post(
-                'http://localhost:8000/signup', headers=headers, data=payload_json)
+                f"{config('app.BaseURL')}signup", headers=headers, data=payload_json)
 
             rprint(
-                f"[bold white]Response: {response.status_code} - {response.text.message}[/bold white]")
+                f"[bold white]Response: {response.status_code} - {response.text}[/bold white]")
         else:
             # Add logic for 'login' if necessary
             rprint(
