@@ -13,3 +13,4 @@ python-decouple==3.8
 psycopg2==2.9.9
 uvicorn==0.30.1
 pydantic[email]
+PyJWT==2.7.0

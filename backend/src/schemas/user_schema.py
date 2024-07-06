@@ -26,3 +26,16 @@ class UserOutput(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class UserLogin(BaseModel):
+    username: str = Form(...)
+    password: str = Form(...)
+
+    @root_validator(pre=True)
+    def hash_password(cls, values):
+        if 'password' in values:
+            hashed_password = bcrypt.hashpw(
+                values['password'].encode('utf-8'), bcrypt.gensalt())
+            values['password'] = hashed_password.decode('utf-8')
+        return values

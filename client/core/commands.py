@@ -59,6 +59,19 @@ def scrape(auth, username, password, email):
                 f"[bold white]Response: {response.status_code} - {response.text}[/bold white]")
         else:
             # Add logic for 'login' if necessary
+            headers = {"Content-Type": "application/json"}
+            payload = {
+                'username': username,
+                'password': password
+            }
+            payload_json = json.dumps(payload)
+
+            response = requests.post(
+                f"{config('app.BaseURL')}signin", headers=headers, data=payload_json)
+
+            rprint(
+                f"[bold white]Response: {response.status_code} - {response.text}[/bold white]")
+
             rprint(
                 "[bold yellow]Login functionality is not implemented yet.[/bold yellow]")
 
